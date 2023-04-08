@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view/>
+    <router-view :key="$route.fullPath"/>
     <StartbackgroundComponentVue/>
       
   </div>
@@ -18,6 +18,22 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: Neo-light;
+  src: url(@/fonts/Neo\ Sans\ Std\ Light.otf);
+}
+
+@font-face {
+  font-family: Neo-bold;
+  src: url(@/fonts/Neo\ Sans\ Std\ Bold.otf);
+
+}
+
+@font-face {
+  font-family: Neo-regular;
+  src: url(@/fonts/Neo\ Sans\ Std\ Regular.otf);
+}
 
 
 @import "~bulma/css/bulma.css";

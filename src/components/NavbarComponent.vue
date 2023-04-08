@@ -1,7 +1,7 @@
 <template>
   <div class="container is-fluid is-flex  is-flex-direction-row" id="container-big">
     <div class="container is-fluid" id="containernav">
-      <div class="title is-1" id="link"><router-link to="/systeme-solaire"><a>Le système solaire</a></router-link></div>
+      <div class="title is-1" id="link"><router-link to="/systeme-solaire">Le système solaire</router-link></div>
       <div class="title is-1" id="link"><router-link to="/astres">Les astres</router-link></div>
       <div class="title is-1" id="link"><router-link to="/favori">Favoris</router-link></div>
     </div>
@@ -30,21 +30,7 @@ export default {
 
 
 <style scoped>
-@font-face {
-  font-family: Neo-light;
-  src: url(@/fonts/Neo\ Sans\ Std\ Light.otf);
-}
 
-@font-face {
-  font-family: Neo-bold;
-  src: url(@/fonts/Neo\ Sans\ Std\ Bold.otf);
-
-}
-
-@font-face {
-  font-family: Neo-regular;
-  src: url(@/fonts/Neo\ Sans\ Std\ Regular.otf);
-}
 
 
 #containernav {
@@ -57,7 +43,7 @@ export default {
 
 
 #container-big{
-  background-color: red;
+  /* background-color: red; */
   top: 200px;
 }
 

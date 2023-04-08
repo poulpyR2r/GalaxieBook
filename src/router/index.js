@@ -17,6 +17,7 @@ const routes = [
   },
   {
     path: "/astres/:id",
+    
     name : "astresId",
     component: AstresViewId,
   }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AstresIdComponent/>
+        <AstresIdComponent />
     </div>
 </template>
   
@@ -11,8 +11,11 @@ import AstresIdComponent from "@/components/AstresIdComponent.vue";
 export default {
     name: "AstresViewId",
     components: {
-        AstresIdComponent  
+        AstresIdComponent
     },
+
+
+   
 };
 </script>
   
