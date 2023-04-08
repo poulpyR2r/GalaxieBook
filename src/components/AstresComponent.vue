@@ -1,20 +1,36 @@
 <template>
     <div class="container is-fluid">
-        <input class="input" type="text" placeholder="Rechercher un astre">
-        <div class="container">
+        <input class="input" type="text"  v-model="search" placeholder="Rechercher un astre">
+        <div class="container is-fluid">
 
-            <div>
-                <h1>Liste des astres</h1>
-                <ul>
-                    <li v-for="astre in astresliste" :key="astre.id">
-                        {{ astre.name }} ({{ astre.englisName }})
-                        <ul>
-                            <li>Densité : {{ astre.density }}</li>
-                            <li>Gravité : {{ astre.gravity }}</li>
-                        </ul>
-                    </li>
-                </ul>
+
+            <div class="columns is-multiline">
+                <div class="column is-4" v-for="astre in filteredAstres" :key="astre.id">
+                    <div class="container" id="card_astres">
+                        <div class="container p-2 is-flex is-flex-direction-column" id="card_perspective">
+                            <div class="subtitle is-align-self-center"><strong>{{ astre.name }}</strong></div>
+                            <button class="button mt-2" id="button-card">
+                                <router-link :to="{ name: 'astresId', params: { id:astre.id }}">Détails</router-link>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
+
+
+
+
+
+            <div class="columns">
+
+                <div class="column is-3">
+
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -26,11 +42,21 @@
 
 export default {
     name: "AstresComponent",
+    data() {
+        return {
+            search: ''
+        }
+    },
 
     computed: {
         astresliste() {
             return this.$store.state.astres
         },
+
+        filteredAstres() {
+            return this.astresliste.filter(astre => astre.name.toLowerCase().includes(this.search.toLowerCase()));
+        },
+
     },
     created() {
 
@@ -46,3 +72,25 @@ export default {
 
 
 </script>
+
+<style scoped>
+#card_astres {
+    background-color: white;
+    z-index: 99;
+    border-radius: 8px;
+}
+
+#button-card {
+        
+}
+
+
+#card_perspective{
+  
+}
+
+#card_perspective:hover{
+ 
+}
+
+</style>

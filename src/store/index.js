@@ -17,11 +17,11 @@ export default createStore({
       fetch(baseURL).then( response => {
         response.json().then( data => {
           data.bodies.forEach( el => {    
-            // console.log(el);
+            console.log(el);
             let details = {
               id: el.id,
               name : el.name,
-              englisName : el.englisName,
+              englishName : el.englishName,
               density : el.density,
               gravity : el.gravity  
            
@@ -32,5 +32,10 @@ export default createStore({
         });
       }).catch( e => console.log(e) );
     }
+  },
+
+  getters : {
+
   }
+  
 })

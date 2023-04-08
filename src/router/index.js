@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AccueilView from "@/views/AccueilView.vue";
 import AstresView from "@/views/AstresView.vue";
+import AstresViewId from "@/views/AstresViewId.vue";
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     name : "astres",
     component: AstresView,
   },
+  {
+    path: "/astres/:id",
+    name : "astresId",
+    component: AstresViewId,
+  }
 
 ]
 

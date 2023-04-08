@@ -18,7 +18,7 @@ export default {
   components:{
     PlanetteTerre
   },
-  
+
   created () {
   },
   mounted () {
@@ -29,7 +29,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 @font-face {
   font-family: Neo-light;
   src: url(@/fonts/Neo\ Sans\ Std\ Light.otf);
