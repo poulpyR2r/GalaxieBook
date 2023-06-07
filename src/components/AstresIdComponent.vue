@@ -1,4 +1,5 @@
 <template>
+    <button class="button mt-2 ml-2" id="button-card" @click="$router.go(-1)">Retour</button>
     <div class="container mt-6">
         <div class="box is-flex is-flex-direction-column">
             <h1 class="title is-align-self-center" id="title">{{ astreDetails.name }}</h1>
@@ -212,19 +213,22 @@
 
             </div>
 
-            <div class="box " id="box_generals">
-                <div class="subtitle">Les Lunes</div>
+            <div v-if="astreDetails.moons" class="box is-flex is-flex-direction-column" id="box_generals">
+                <div class="subtitle is-align-self-center" id="subtitle">Les Lunes</div>
 
                 <!-- <div>{{ astreDetails.moons }}</div> -->
-                <div v-for="(propmoonvalue, propmoon  ) in astreDetails.moons" :key="propmoon">
+                <div v-for="(propmoonvalue, propmoon  ) in astreDetails.moons" :key="propmoon"
+                    class="is-flex is-justify-content-space-between box" id="moonbox">
+
                     <div class="">
                         {{ propmoonvalue.moon }}
-                        {{ propmoonvalue.rel }}
                     </div>
 
                     <div class="">
-                        <router-link :to ="{name : 'astreDetails' , params : { moonId: extractIdUrl(propmoonvalue.rel) }}">Détails</router-link>
 
+                        <button class="button mt-2 " id="button-card" @click="extractIdUrl(propmoonvalue.rel)">
+                            Explorer
+                        </button>
                     </div>
 
                 </div>
@@ -266,10 +270,16 @@ export default {
 
     methods: {
 
-        extractIdUrl (url) {
+        extractIdUrl(url) {
             const segments = url.split('/')
-            return segments[segments.length - 1]
-        }
+            const getLastElement = segments.length - 1
+            const lastElement = segments[getLastElement]
+            console.log("l'id est " + lastElement)
+            this.$router.push('/astres/' + lastElement);
+
+        },
+
+
     },
 
 
@@ -277,7 +287,7 @@ export default {
         console.log('ici')
         console.log(this.$route.params.id)
         const astreId = this.$route.params.id;
-        console.log(this.$store.getters.getAstreById(astreId));
+        console.log(this.$store.getters['astres/getAstreById'](astreId));
     },
 
 
@@ -286,7 +296,7 @@ export default {
     computed: {
         astreDetails() {
             const astreId = this.$route.params.id;
-            return this.$store.getters.getAstreById(astreId);
+            return this.$store.getters['astres/getAstreById'](astreId);
         }
 
     },
@@ -313,6 +323,23 @@ export default {
     font-style: italic;
     font-family: Neo-bold;
     font-size: 40px;
+}
 
+#moonbox {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-family: Neo-bold;
+    font-style: italic;
+    font-size: 20px;
+
+
+}
+
+#button-card {
+    background-color: #824d9b;
+    color: rgb(255, 255, 255) !important;
+    font-family: Neo-regular;
+    width: 100px;
+    border: black !important;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 </style>

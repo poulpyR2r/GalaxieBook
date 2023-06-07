@@ -1,9 +1,17 @@
 <template>
-  <div class="container is-fluid is-flex  is-flex-direction-row" id="container-big">
+  <div class="container is-flex is-fluid is-justify-content-center mt-6">
+    
+    <div class="title has-text-white ">Galaxie Book</div>
+
+  </div>
+
+  <div class="container is-fluid is-flex  is-flex-direction-row " id="container-big">
     <div class="container is-fluid" id="containernav">
       <div class="title is-1" id="link"><router-link to="/systeme-solaire">Le système solaire</router-link></div>
       <div class="title is-1" id="link"><router-link to="/astres">Les astres</router-link></div>
-      <div class="title is-1" id="link"><router-link to="/favori">Favoris</router-link></div>
+      <div class="title is-1" id="link"><router-link to="/favoris">Favoris</router-link></div>
+      <div class="title is-1" id="link"><router-link to="/nasa">Nasa</router-link></div>
+
     </div>
     <div class="container is-fluid">
       <PlanetteTerre class="mt-6"></PlanetteTerre>
@@ -13,15 +21,16 @@
   
 <script>
 import PlanetteTerre from './PlanetteTerre.vue';
+
 export default {
   name: "NavbarComponent",
-  components:{
-    PlanetteTerre
+  components: {
+    PlanetteTerre,
   },
 
-  created () {
+  created() {
   },
-  mounted () {
+  mounted() {
   },
 };
 
@@ -30,9 +39,6 @@ export default {
 
 
 <style scoped>
-
-
-
 #containernav {
   margin-top: 170px;
   font-family: Neo-bold;
@@ -42,9 +48,9 @@ export default {
 }
 
 
-#container-big{
+#container-big {
   /* background-color: red; */
-  top: 200px;
+  margin-top: 60px;
 }
 
 #background_earth {
@@ -52,11 +58,11 @@ export default {
   width: 600px;
   height: 600px;
   /* background-color: red; */
-  background-image: linear-gradient(213deg,transparent 50%,rgba(0,0,0,.8)), url(../assets/earth.webp);
+  background-image: linear-gradient(213deg, transparent 50%, rgba(0, 0, 0, .8)), url(../assets/earth.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
-  
+
 }
 
 #link {
@@ -73,5 +79,11 @@ a {
 a:hover {
   color: rgb(199, 199, 199);
   transform: scale(1.03);
+}
+
+#titlegalaxie {
+  font-family: Neo-bold;
+  color: white;
+  font-size: 80px;
 }
 </style>

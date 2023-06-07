@@ -27,7 +27,8 @@
                 <div class="column is-4" v-for="astre in filteredAstres" :key="astre.id">
                     <div class="container" id="card_astres">
                         <div class="container p-2 is-flex is-flex-direction-column" id="card_perspective">
-                            <div class="subtitle is-align-self-center has-text-black" id="subtitle"><strong>{{ astre.name }}</strong></div>
+                            <div class="subtitle is-align-self-center has-text-black" id="subtitle"><strong>{{ astre.name
+                            }}</strong></div>
                             <div v-if="astre.moons === null">
                                 <p>Cette astre ne possède pas de lune</p>
                             </div>
@@ -42,19 +43,19 @@
                                     <button class="button mt-2 is-info" id="button-card" @click="navigate" role="link">
                                         Explorer
                                     </button>
-                                    
+
                                 </router-link>
 
-                                   
-                                    
+
+
                             </div>
 
                             <button class="button mt-2 is-info" @click="toggleFavori(astre)">
-    {{ isFavori(astre) ? "Retirer des favoris" : "Ajouter aux favoris" }}
-  </button>
-                            
+                                {{ isFavori(astre) ? "Retirer des favoris" : "Ajouter aux favoris" }}
+                            </button>
+
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -119,7 +120,7 @@ export default {
             return this.favoris.some((favori) => favori.id === astre.id);
         },
         scrollToTop() {
-            // ...
+            window.scrollTo(0, 0);
         },
     },
     mounted() {
@@ -134,9 +135,8 @@ export default {
     src: url(@/fonts/Neo\ Sans\ Std\ Bold.otf);
 
 }
-#warning{
-    
-}
+
+#warning {}
 
 #title {
     font-family: Neo-bold;
@@ -155,7 +155,7 @@ export default {
     background-color: white;
     z-index: 98;
     border-radius: 8px;
-    
+
 }
 
 #bg-container {}
@@ -169,7 +169,7 @@ export default {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-#scroll{
+#scroll {
     background-color: #824d9b;
     color: rgb(255, 255, 255) !important;
     font-family: Neo-regular;
