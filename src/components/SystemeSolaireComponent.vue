@@ -1,17 +1,17 @@
 <template>
   <div class="container mb-6">
-    <div data-aos="flip-left" class="container is-flex ">
+    <div data-aos="fade-up" class="container is-flex " id="title">
       <div class="is-size-1 has-text-white">Scroll to discover</div>
     </div>
     <div class="container">
 
-      <div class="solar-system">
-        <div id="sun"></div>
+      <div class="solar-system mt-5">
+        <div id="sun" class="brilliance"></div>
 
 
         <div v-for="planet in planets" :key="planet.id" class="">
 
-          <div class="planet"
+          <div class="planet is-clickable"
             :style="{ marginTop: (scaleDistance(planet.semimajorAxis) + 25) + 'px', width: scaleSize((planet.meanRadius) * 2) + 'px', height: scaleSize((planet.meanRadius) * 2) + 'px', backgroundColor: planetColor(planet) }"
             @mouseover="showPlanetInfo(planet.id)" @mouseleave="hidePlanetInfo(planet.id)">
             <div v-show="hoveredPlanet === planet.id" class="planet-info box">
@@ -23,7 +23,7 @@
           </div>
 
 
-          <div class="container ml-6 has-text-white">{{ planet.semimajorAxis }} km</div>
+          <div data-aos="fade-left" class="info-container has-text-white">{{ planet.semimajorAxis }} km</div>
         </div>
       </div>
 
@@ -108,10 +108,23 @@ export default {
   flex-direction: column-reverse;
 }
 
+
+
 .solar-system {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50vh;
+}
+.info-container{
+  position: absolute;
+  margin-left: 70vh;
+  width: 20vh;
+  font-family: Neo-bold;
+  font-style: italic;
+  margin-bottom: -0.5vh;
+  font-size: larger;
+  
 }
 
 #sun {
@@ -120,7 +133,12 @@ export default {
   background-color: #ff0;
   margin-bottom: 1rem;
   border-radius: 50%;
+  box-shadow: 0 0 10px 10px #ff0;
+  filter: brightness(150%);
 }
+
+
+
 
 .planet {
   background-color: rgb(255, 31, 31);

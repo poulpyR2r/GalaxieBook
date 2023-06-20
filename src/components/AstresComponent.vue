@@ -40,7 +40,7 @@
                             <div class="container mt-3 mb-3">
                                 <router-link :to="{ name: 'astresId', params: { id: astre.id } }" custom
                                     v-slot="{ navigate }">
-                                    <button class="button mt-2 is-info" id="button-card" @click="navigate" role="link">
+                                    <button class="button mt-2" id="button-card" @click="navigate" role="link">
                                         Explorer
                                     </button>
 
@@ -50,8 +50,8 @@
 
                             </div>
 
-                            <button class="button mt-2 is-info" @click="toggleFavori(astre)">
-                                {{ isFavori(astre) ? "Retirer des favoris" : "Ajouter aux favoris" }}
+                            <button class="button mt-2" @click="toggleFavori(astre)">
+                                <p class="has-text-white">{{ isFavori(astre) ? "Retirer des favoris" : "Ajouter aux favoris" }}</p>
                             </button>
 
                         </div>
@@ -136,13 +136,16 @@ export default {
 
 }
 
-#warning {}
+.button {
+    background-color:  #001B44;
+}
 
 #title {
     font-family: Neo-bold;
     font-size: 88px;
     font-style: italic;
 }
+
 
 #subtitle {
     font-family: Neo-bold;
@@ -161,7 +164,7 @@ export default {
 #bg-container {}
 
 #button-card {
-    background-color: #824d9b;
+    background-color: #6E0C7A;
     color: rgb(255, 255, 255) !important;
     font-family: Neo-regular;
     width: 100px;
